@@ -109,7 +109,7 @@ Este projeto está otimizado para deploy automático no Vercel:
 
 ## 👨‍💻 Autor
 
-**Julio Campos** - Especialista em Hipnose e PNL
+**Julio Campos Machado** - Especialista em Hipnose e PNL
 - Criador da metodologia Hiperfoco Absoluto
 - Expert em programação neural para prosperidade
 
