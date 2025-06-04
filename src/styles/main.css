@@ -22,6 +22,9 @@
     --success-color: #28a745;
     --warning-color: #ffc107;
     
+    /* Transições */
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
     /* Gradientes Comerciais */
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -645,6 +648,38 @@ p {
     padding: 3rem 2rem;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ==========================================================================
+   SEÇÕES PNL MELHORADAS
+   ========================================================================== */
+
+.pnl-section {
+    background: var(--gradient-dark);
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.pnl-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pnl-patterns {
+    margin: 2rem 0;
+}
+
+.presuppositions {
+    margin-top: 3rem;
+}
+
+.embedded-command {
+    font-size: 1.3rem;
+    color: var(--highlight-color);
+    font-style: italic;
+    margin: 2rem 0;
 }
 
 /* ==========================================================================
@@ -1018,6 +1053,174 @@ a:focus {
     font-display: swap;
     content-visibility: auto;
     contain-intrinsic-size: 300px;
+}
+
+/* ==========================================================================
+   CARDS DE CONTEÚDO CENTRALIZADOS
+   ========================================================================== */
+
+.content-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    text-align: center;
+    box-shadow: var(--shadow-large);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: 20px 20px 0 0;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-glow);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Cards específicos */
+.overlay-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.85);
+    max-width: 700px;
+    width: 90%;
+}
+
+.focus-card {
+    margin-top: 3rem;
+    background: rgba(108, 92, 231, 0.1);
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.eye-overlay-card {
+    margin-bottom: 3rem;
+    background: rgba(233, 69, 96, 0.1);
+    border-color: rgba(233, 69, 96, 0.3);
+}
+
+.phrases-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+}
+
+.whisper-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(253, 203, 110, 0.3);
+    max-width: 800px;
+}
+
+.main-transformation-card {
+    background: rgba(26, 26, 46, 0.9);
+    border-color: rgba(253, 203, 110, 0.4);
+    box-shadow: var(--shadow-gold);
+    max-width: 1000px;
+}
+
+.modules-preview-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(108, 92, 231, 0.3);
+    margin-top: 4rem;
+    max-width: 1200px;
+}
+
+.pnl-main-card {
+    background: rgba(16, 52, 96, 0.8);
+    border-color: rgba(233, 69, 96, 0.4);
+    max-width: 1100px;
+}
+
+.pnl-patterns-card {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 2rem 0;
+    padding: 2rem;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.presuppositions-card {
+    background: rgba(253, 203, 110, 0.1);
+    border-color: rgba(253, 203, 110, 0.3);
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.presuppositions-card p {
+    color: var(--gold-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsividade dos cards */
+@media (max-width: 768px) {
+    .content-card {
+        padding: 2rem 1.5rem;
+        margin: 1.5rem auto;
+        border-radius: 15px;
+    }
+    
+    .overlay-card {
+        width: 95%;
+        padding: 2rem 1.5rem;
+    }
+    
+    .main-transformation-card,
+    .modules-preview-card,
+    .pnl-main-card {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-card {
+        padding: 1.5rem 1rem;
+        margin: 1rem auto;
+    }
+    
+    .overlay-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .pnl-patterns-card,
+    .presuppositions-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animações específicas para cards */
+.content-card.fade-in-up {
+    animation: cardFadeInUp 0.8s ease-out;
+}
+
+@keyframes cardFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ==========================================================================

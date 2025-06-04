@@ -68,17 +68,19 @@
     <section class="scroll-stop mandala-section" data-offset="300">
         <div class="mandala-container">
             <div class="rotating-mandala"></div>
-            <div class="overlay-text blur-focus-text">
+            <div class="content-card overlay-card">
                 <h2>Sua atenção está ficando mais aguda...</h2>
                 <p>as palavras abaixo vão se tornar MAIS NÍTIDAS...</p>
                 <p>O resto do mundo... simplesmente... desaparece.</p>
             </div>
         </div>
         
-        <div class="focus-text blur-to-focus">
-            <p>Quando seu foco aumenta, tudo ao redor se torna mais claro...</p>
-            <p>Você pode sentir sua mente se expandindo...</p>
-            <p>Cada palavra que você lê... penetra mais profundamente em sua consciência...</p>
+        <div class="content-card focus-card">
+            <div class="card-content">
+                <p>Quando seu foco aumenta, tudo ao redor se torna mais claro...</p>
+                <p>Você pode sentir sua mente se expandindo...</p>
+                <p>Cada palavra que você lê... penetra mais profundamente em sua consciência...</p>
+            </div>
         </div>
     </section>
     
@@ -86,7 +88,7 @@
     <section class="scroll-stop eye-section" data-offset="600">
         <div class="eye-container">
             <div class="hypnotic-eye"></div>
-            <div class="eye-overlay-text">
+            <div class="content-card eye-overlay-card">
                 <h2>Você já percebeu... como seu campo visual está mais estreito agora?...</h2>
                 <p>Só o essencial existe.</p>
                 <p>Sua mente filtrou automaticamente... tudo que não importa.</p>
@@ -94,12 +96,14 @@
         </div>
         
         <!-- Interactive Microphrases -->
-        <div class="interactive-phrases">
-            <span class="hover-phrase" data-phrase="ruídos desaparecem... só você e a tela...">🔇</span>
-            <span class="hover-phrase" data-phrase="seu foco se intensifica a cada segundo...">🎯</span>
-            <span class="hover-phrase" data-phrase="distrações não existem mais...">🚫</span>
-            <span class="hover-phrase" data-phrase="sua prosperidade está nascendo agora...">💰</span>
-            <span class="hover-phrase" data-phrase="cada clique é um passo para sua transformação...">⚡</span>
+        <div class="content-card phrases-card">
+            <div class="interactive-phrases">
+                <span class="hover-phrase" data-phrase="ruídos desaparecem... só você e a tela...">🔇</span>
+                <span class="hover-phrase" data-phrase="seu foco se intensifica a cada segundo...">🎯</span>
+                <span class="hover-phrase" data-phrase="distrações não existem mais...">🚫</span>
+                <span class="hover-phrase" data-phrase="sua prosperidade está nascendo agora...">💰</span>
+                <span class="hover-phrase" data-phrase="cada clique é um passo para sua transformação...">⚡</span>
+            </div>
         </div>
     </section>
     
@@ -107,10 +111,12 @@
     <section class="scroll-stop video-section" data-offset="900">
         <div class="video-container">
             <div class="whisper-background"></div>
-            <div class="whisper-text">
-                <h2>Seu microuniverso financeiro... está esperando por você...</h2>
-                <p>mais 3 segundos de foco... e você chegará lá...</p>
-                <p>Sua família... sua prosperidade... estão do outro lado desta decisão...</p>
+            <div class="content-card whisper-card">
+                <div class="card-content">
+                    <h2>Seu microuniverso financeiro... está esperando por você...</h2>
+                    <p>mais 3 segundos de foco... e você chegará lá...</p>
+                    <p>Sua família... sua prosperidade... estão do outro lado desta decisão...</p>
+                </div>
             </div>
             
             <!-- Audio Player for Whisper -->
@@ -123,53 +129,57 @@
     <!-- SEÇÃO DE TRANSFORMAÇÃO -->
     <section id="transformation" class="transformation-section">
         <div class="focus-progress-container">
-            <h2>ATIVANDO SEU HIPERFOCO...</h2>
-            
-            <!-- Focus Level Bar -->
-            <div class="focus-meter-main">
-                <div class="focus-label">NÍVEL DE FOCO:</div>
-                <div class="focus-bar-container">
-                    <div class="focus-bar-fill" id="main-focus-bar"></div>
+            <div class="content-card main-transformation-card">
+                <h2>ATIVANDO SEU HIPERFOCO...</h2>
+                
+                <!-- Focus Level Bar -->
+                <div class="focus-meter-main">
+                    <div class="focus-label">NÍVEL DE FOCO:</div>
+                    <div class="focus-bar-container">
+                        <div class="focus-bar-fill" id="main-focus-bar"></div>
+                    </div>
+                    <div class="focus-percentage" id="main-focus-percentage">30%</div>
                 </div>
-                <div class="focus-percentage" id="main-focus-percentage">30%</div>
-            </div>
-            
-            <!-- Progressive Messages -->
-            <div class="progress-messages">
-                <p class="progress-msg" data-level="30">Sua mente já bloqueou 30% das distrações...</p>
-                <p class="progress-msg" data-level="50">Ruídos externos estão sendo filtrados automaticamente...</p>
-                <p class="progress-msg" data-level="72">Família... finanças... prosperidade... estão agora em seu campo de visão permanente.</p>
-                <p class="progress-msg" data-level="100">HIPERFOCO ATIVADO. Sua mente está 100% alinhada com seus objetivos.</p>
+                
+                <!-- Progressive Messages -->
+                <div class="progress-messages">
+                    <p class="progress-msg" data-level="30">Sua mente já bloqueou 30% das distrações...</p>
+                    <p class="progress-msg" data-level="50">Ruídos externos estão sendo filtrados automaticamente...</p>
+                    <p class="progress-msg" data-level="72">Família... finanças... prosperidade... estão agora em seu campo de visão permanente.</p>
+                    <p class="progress-msg" data-level="100">HIPERFOCO ATIVADO. Sua mente está 100% alinhada com seus objetivos.</p>
+                </div>
             </div>
         </div>
         
         <!-- Course Modules Preview -->
-        <div class="modules-preview">
-            <h3>O QUE VOCÊ VAI DOMINAR:</h3>
-            
-            <div class="module-preview-grid">
-                <div class="module-preview-card">
-                    <div class="module-icon">🧘</div>
-                    <h4>Silêncio Mental</h4>
-                    <p>Elimine o ruído mental e crie quietude absoluta</p>
-                </div>
+        <div class="content-card modules-preview-card">
+            <div class="card-content">
+                <h3>O QUE VOCÊ VAI DOMINAR:</h3>
                 
-                <div class="module-preview-card">
-                    <div class="module-icon">🎯</div>
-                    <h4>Foco Laser</h4>
-                    <p>Transforme sua atenção em precisão cirúrgica</p>
-                </div>
-                
-                <div class="module-preview-card">
-                    <div class="module-icon">🚫</div>
-                    <h4>Escudo Anti-Distração</h4>
-                    <p>Torne-se imune a qualquer interferência</p>
-                </div>
-                
-                <div class="module-preview-card">
-                    <div class="module-icon">💰</div>
-                    <h4>Prosperidade Hipnótica</h4>
-                    <p>Conecte foco diretamente à sua conta bancária</p>
+                <div class="module-preview-grid">
+                    <div class="module-preview-card">
+                        <div class="module-icon">🧘</div>
+                        <h4>Silêncio Mental</h4>
+                        <p>Elimine o ruído mental e crie quietude absoluta</p>
+                    </div>
+                    
+                    <div class="module-preview-card">
+                        <div class="module-icon">🎯</div>
+                        <h4>Foco Laser</h4>
+                        <p>Transforme sua atenção em precisão cirúrgica</p>
+                    </div>
+                    
+                    <div class="module-preview-card">
+                        <div class="module-icon">🚫</div>
+                        <h4>Escudo Anti-Distração</h4>
+                        <p>Torne-se imune a qualquer interferência</p>
+                    </div>
+                    
+                    <div class="module-preview-card">
+                        <div class="module-icon">💰</div>
+                        <h4>Prosperidade Hipnótica</h4>
+                        <p>Conecte foco diretamente à sua conta bancária</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -177,20 +187,22 @@
     
     <!-- COPYWRITING PNL SECTION -->
     <section class="pnl-section">
-        <div class="pnl-content">
-            <h2>QUANDO VOCÊ CLICA NO BOTÃO ABAIXO...</h2>
-            <p class="embedded-command">seu cérebro já começou a deletar todo ruído externo.</p>
-            
-            <div class="pnl-patterns">
-                <p>Você pode não perceber ainda... mas sua respiração está mais lenta... e suas decisões financeiras... mais claras.</p>
-                <p>Talvez você não tenha notado... como sua postura mudou... seu corpo já sabe que algo importante está acontecendo.</p>
-                <p>É interessante observar... como sua mente já começou a organizar... suas prioridades de forma diferente.</p>
-            </div>
-            
-            <div class="presuppositions">
-                <p><strong>Depois que você ativar seu hiperfoco...</strong></p>
-                <p><strong>Quando sua prosperidade começar a crescer...</strong></p>
-                <p><strong>Assim que você acessar a área de membros...</strong></p>
+        <div class="content-card pnl-main-card">
+            <div class="card-content">
+                <h2>QUANDO VOCÊ CLICA NO BOTÃO ABAIXO...</h2>
+                <p class="embedded-command">seu cérebro já começou a deletar todo ruído externo.</p>
+                
+                <div class="content-card pnl-patterns-card">
+                    <p>Você pode não perceber ainda... mas sua respiração está mais lenta... e suas decisões financeiras... mais claras.</p>
+                    <p>Talvez você não tenha notado... como sua postura mudou... seu corpo já sabe que algo importante está acontecendo.</p>
+                    <p>É interessante observar... como sua mente já começou a organizar... suas prioridades de forma diferente.</p>
+                </div>
+                
+                <div class="content-card presuppositions-card">
+                    <p><strong>Depois que você ativar seu hiperfoco...</strong></p>
+                    <p><strong>Quando sua prosperidade começar a crescer...</strong></p>
+                    <p><strong>Assim que você acessar a área de membros...</strong></p>
+                </div>
             </div>
         </div>
     </section>
