@@ -18,7 +18,9 @@ O **Hiperfoco Absoluto** é um curso revolucionário que utiliza técnicas avan�
 
 ```
 📁 Hipnose-coletiva/
-├── 📄 index.html                    # Área do aluno com portal hipnótico
+├── 📄 entry.html                    # Portal de seleção (visitantes vs alunos)
+├── 📄 index.html                    # Página principal de vendas hipnótica
+├── 📄 student-area.html             # Área do aluno com portal hipnótico
 ├── 📄 vercel.json                   # Configuração de deploy
 ├── 📁 content/
 │   ├── 📄 hypnotic-texts.md         # Textos hipnóticos completos

@@ -3,334 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Hipnótico - Área do Aluno | Hiperfoco Absoluto</title>
+    <title>Hiperfoco Absoluto - Transforme Atenção em Ouro Puro</title>
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="src/styles/student-area.css">
+    <link rel="stylesheet" href="src/styles/main.css">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom Cursor -->
+    <style>
+        * { cursor: none; }
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff6b35;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+        .target { cursor: crosshair !important; }
+    </style>
 </head>
 <body>
-    <!-- LOGIN PORTAL -->
-    <div id="login-portal" class="portal-container">
-        <!-- Background portal animation -->
-        <div class="portal-background">
-            <div class="portal-ring ring-1"></div>
-            <div class="portal-ring ring-2"></div>
-            <div class="portal-ring ring-3"></div>
-            <div class="portal-center"></div>
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+    
+    <!-- HERO SECTION (CABEÇALHO IMERSIVO) -->
+    <section class="hero-section">
+        <!-- Background Video/GIF -->
+        <div class="hero-background">
+            <div class="hypnotic-spiral"></div>
         </div>
         
-        <div class="login-content">
-            <h1 class="portal-title">PORTAL HIPNÓTICO</h1>
-            <p class="portal-subtitle">Digite sua senha... e seu foco será DESBLOQUEADO</p>
+        <div class="hero-content">
+            <h1 class="hero-title typing-effect">HIPERFOCO ABSOLUTO</h1>
+            <p class="hero-subtitle typing-effect" data-delay="2000">
+                Você está prestes a acessar... uma mente sem distrações... um foco inquebrável...
+            </p>
+            <p class="hero-instruction typing-effect" data-delay="4000">
+                Role para baixo... e permita-se mergulhar no estado de HIPERFOCO ABSOLUTO.
+            </p>
             
-            <form id="login-form" class="login-form">
-                <div class="input-group">
-                    <label for="email">E-mail de acesso:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="input-group">
-                    <label for="password">Código de ativação:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                
-                <button type="submit" class="portal-access-btn">ACESSAR DIMENSÃO DO HIPERFOCO</button>
-            </form>
-            
-            <p class="portal-hint">Recebeu seu código por e-mail após a compra</p>
-        </div>
-    </div>
-    
-    <!-- STUDENT DASHBOARD (Hidden initially) -->
-    <div id="student-dashboard" class="dashboard-container" style="display: none;">
-        <!-- Header com Progress -->
-        <header class="dashboard-header">
-            <div class="header-content">
-                <h1 class="dashboard-title">SEU MICROUNIVERSO DE HIPERFOCO</h1>
-                <div class="focus-level-indicator">
-                    <span class="focus-label">NÍVEL DE FOCO:</span>
-                    <div class="focus-meter">
-                        <div class="focus-bar" id="user-focus-level"></div>
-                    </div>
-                    <span class="focus-percentage" id="focus-percentage">0%</span>
-                </div>
+            <!-- Subliminal Messages -->
+            <div class="subliminal-messages">
+                <span class="subliminal fade-in" data-delay="6000">Sua respiração já está mais lenta...</span>
+                <span class="subliminal fade-in" data-delay="8000">Seus olhos estão fixos na tela...</span>
+                <span class="subliminal fade-in" data-delay="10000">O mundo externo começa a desaparecer...</span>
             </div>
-        </header>
+            
+            <button class="cta-button pulsating-button target" data-scroll-to="transformation">
+                QUERO ATIVAR AGORA
+            </button>
+        </div>
+    </section>
+    
+    <!-- SCROLL HYPNOSIS SEQUENCE -->
+    
+    <!-- PARADA 1 (300px) - FOCO VISUAL -->
+    <section class="scroll-stop mandala-section" data-offset="300">
+        <div class="mandala-container">
+            <div class="rotating-mandala"></div>
+            <div class="overlay-text blur-focus-text">
+                <h2>Sua atenção está ficando mais aguda...</h2>
+                <p>as palavras abaixo vão se tornar MAIS NÍTIDAS...</p>
+                <p>O resto do mundo... simplesmente... desaparece.</p>
+            </div>
+        </div>
         
-        <!-- Main Dashboard Content -->
-        <main class="dashboard-main">
-            <!-- Welcome Message -->
-            <section class="welcome-section">
-                <div class="welcome-message">
-                    <h2>Bem-vindo ao seu treinamento de HIPERFOCO ABSOLUTO</h2>
-                    <p>Sua mente está prestes a ser reprogramada para a prosperidade máxima...</p>
-                </div>
-            </section>
-            
-            <!-- Module Grid -->
-            <section class="modules-grid">
-                <!-- Módulo 1 -->
-                <div class="module-card" data-module="1" data-status="available">
-                    <div class="module-header">
-                        <div class="module-icon">🧘</div>
-                        <h3>MÓDULO 1</h3>
-                        <p class="module-title">SILÊNCIO MENTAL</p>
-                    </div>
-                    
-                    <div class="module-content">
-                        <p class="module-description">Domine o primeiro pilar do hiperfoco: eliminar o ruído mental e criar um estado de quietude absoluta.</p>
-                        
-                        <div class="module-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-progress="0"></div>
-                            </div>
-                            <span class="progress-text">0% Concluído</span>
-                        </div>
-                        
-                        <button class="start-module-btn" data-module="1">INICIAR TREINAMENTO</button>
-                    </div>
-                    
-                    <div class="module-status available">DISPONÍVEL</div>
-                </div>
-                
-                <!-- Módulo 2 -->
-                <div class="module-card" data-module="2" data-status="locked">
-                    <div class="module-header">
-                        <div class="module-icon">🎯</div>
-                        <h3>MÓDULO 2</h3>
-                        <p class="module-title">FOCO LASER</p>
-                    </div>
-                    
-                    <div class="module-content">
-                        <p class="module-description">Transforme sua atenção em um laser de precisão capaz de cortar qualquer obstáculo à sua prosperidade.</p>
-                        
-                        <div class="module-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-progress="0"></div>
-                            </div>
-                            <span class="progress-text">Aguardando liberação</span>
-                        </div>
-                        
-                        <button class="start-module-btn locked" disabled>BLOQUEADO - LIBERA EM 2 DIAS</button>
-                    </div>
-                    
-                    <div class="module-status locked">BLOQUEADO</div>
-                </div>
-                
-                <!-- Módulo 3 -->
-                <div class="module-card" data-module="3" data-status="locked">
-                    <div class="module-header">
-                        <div class="module-icon">🚫</div>
-                        <h3>MÓDULO 3</h3>
-                        <p class="module-title">ELIMINAÇÃO DE DISTRAÇÕES</p>
-                    </div>
-                    
-                    <div class="module-content">
-                        <p class="module-description">Crie um escudo mental impenetrável contra todas as forças que roubam sua atenção e prosperidade.</p>
-                        
-                        <div class="module-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-progress="0"></div>
-                            </div>
-                            <span class="progress-text">Aguardando liberação</span>
-                        </div>
-                        
-                        <button class="start-module-btn locked" disabled>BLOQUEADO - LIBERA EM 6 DIAS</button>
-                    </div>
-                    
-                    <div class="module-status locked">BLOQUEADO</div>
-                </div>
-                
-                <!-- Módulo 4 -->
-                <div class="module-card" data-module="4" data-status="locked">
-                    <div class="module-header">
-                        <div class="module-icon">💰</div>
-                        <h3>MÓDULO 4</h3>
-                        <p class="module-title">PROSPERIDADE HIPNÓTICA</p>
-                    </div>
-                    
-                    <div class="module-content">
-                        <p class="module-description">Conecte diretamente seu foco à sua conta bancária e transforme atenção em ouro puro.</p>
-                        
-                        <div class="module-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-progress="0"></div>
-                            </div>
-                            <span class="progress-text">Aguardando liberação</span>
-                        </div>
-                        
-                        <button class="start-module-btn locked" disabled>BLOQUEADO - LIBERA EM 9 DIAS</button>
-                    </div>
-                    
-                    <div class="module-status locked">BLOQUEADO</div>
-                </div>
-                
-                <!-- Módulo Bônus -->
-                <div class="module-card bonus-module" data-module="bonus" data-status="locked">
-                    <div class="module-header">
-                        <div class="module-icon">🤖</div>
-                        <h3>MÓDULO BÔNUS</h3>
-                        <p class="module-title">PROGRAMAÇÃO NEURAL AVANÇADA</p>
-                    </div>
-                    
-                    <div class="module-content">
-                        <p class="module-description">Reprogramação direta dos seus padrões neurais para operação na frequência da prosperidade.</p>
-                        
-                        <div class="module-progress">
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-progress="0"></div>
-                            </div>
-                            <span class="progress-text">Aguardando liberação</span>
-                        </div>
-                        
-                        <button class="start-module-btn locked" disabled>BLOQUEADO - LIBERA EM 14 DIAS</button>
-                    </div>
-                    
-                    <div class="module-status locked">ULTRA SECRETO</div>
-                </div>
-            </section>
-            
-            <!-- Stats Dashboard -->
-            <section class="stats-dashboard">
-                <h3>SUAS ESTATÍSTICAS DE FOCO</h3>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">⏱️</div>
-                        <div class="stat-value" id="total-focus-time">0 min</div>
-                        <div class="stat-label">Tempo Total de Foco</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">🔥</div>
-                        <div class="stat-value" id="focus-streak">0 dias</div>
-                        <div class="stat-label">Sequência de Foco</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">💎</div>
-                        <div class="stat-value" id="focus-gems">0</div>
-                        <div class="stat-label">Gemas de Foco</div>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <div class="stat-icon">📈</div>
-                        <div class="stat-value" id="prosperity-index">0%</div>
-                        <div class="stat-label">Índice de Prosperidade</div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Quick Access Tools -->
-            <section class="quick-tools">
-                <h3>FERRAMENTAS RÁPIDAS</h3>
-                
-                <div class="tools-grid">
-                    <button class="tool-btn" id="focus-timer">
-                        <span class="tool-icon">⏰</span>
-                        <span class="tool-name">Timer de Foco</span>
-                    </button>
-                    
-                    <button class="tool-btn" id="distraction-blocker">
-                        <span class="tool-icon">🛡️</span>
-                        <span class="tool-name">Bloqueador Mental</span>
-                    </button>
-                    
-                    <button class="tool-btn" id="prosperity-visualizer">
-                        <span class="tool-icon">🎯</span>
-                        <span class="tool-name">Visualizador de Metas</span>
-                    </button>
-                    
-                    <button class="tool-btn" id="neural-calibrator">
-                        <span class="tool-icon">🧠</span>
-                        <span class="tool-name">Calibrador Neural</span>
-                    </button>
-                </div>
-            </section>
-        </main>
-    </div>
+        <div class="focus-text blur-to-focus">
+            <p>Quando seu foco aumenta, tudo ao redor se torna mais claro...</p>
+            <p>Você pode sentir sua mente se expandindo...</p>
+            <p>Cada palavra que você lê... penetra mais profundamente em sua consciência...</p>
+        </div>
+    </section>
     
-    <!-- Module Player Modal -->
-    <div id="module-player" class="modal-overlay" style="display: none;">
-        <div class="modal-content module-player-content">
-            <div class="player-header">
-                <h2 id="current-module-title">MÓDULO 1 - SILÊNCIO MENTAL</h2>
-                <button class="close-player" id="close-player">✕</button>
+    <!-- PARADA 2 (600px) - CAMPO VISUAL RESTRITO -->
+    <section class="scroll-stop eye-section" data-offset="600">
+        <div class="eye-container">
+            <div class="hypnotic-eye"></div>
+            <div class="eye-overlay-text">
+                <h2>Você já percebeu... como seu campo visual está mais estreito agora?...</h2>
+                <p>Só o essencial existe.</p>
+                <p>Sua mente filtrou automaticamente... tudo que não importa.</p>
+            </div>
+        </div>
+        
+        <!-- Interactive Microphrases -->
+        <div class="interactive-phrases">
+            <span class="hover-phrase" data-phrase="ruídos desaparecem... só você e a tela...">🔇</span>
+            <span class="hover-phrase" data-phrase="seu foco se intensifica a cada segundo...">🎯</span>
+            <span class="hover-phrase" data-phrase="distrações não existem mais...">🚫</span>
+            <span class="hover-phrase" data-phrase="sua prosperidade está nascendo agora...">💰</span>
+            <span class="hover-phrase" data-phrase="cada clique é um passo para sua transformação...">⚡</span>
+        </div>
+    </section>
+    
+    <!-- PARADA 3 (900px) - VOZ SUSSURRANTE -->
+    <section class="scroll-stop video-section" data-offset="900">
+        <div class="video-container">
+            <div class="whisper-background"></div>
+            <div class="whisper-text">
+                <h2>Seu microuniverso financeiro... está esperando por você...</h2>
+                <p>mais 3 segundos de foco... e você chegará lá...</p>
+                <p>Sua família... sua prosperidade... estão do outro lado desta decisão...</p>
             </div>
             
-            <div class="player-body">
-                <!-- Hypnotic background for player -->
-                <div class="player-background">
-                    <div class="hypnotic-spiral"></div>
+            <!-- Audio Player for Whisper -->
+            <audio id="whisper-audio" autoplay loop>
+                <source src="src/assets/audio/whisper-intro.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE TRANSFORMAÇÃO -->
+    <section id="transformation" class="transformation-section">
+        <div class="focus-progress-container">
+            <h2>ATIVANDO SEU HIPERFOCO...</h2>
+            
+            <!-- Focus Level Bar -->
+            <div class="focus-meter-main">
+                <div class="focus-label">NÍVEL DE FOCO:</div>
+                <div class="focus-bar-container">
+                    <div class="focus-bar-fill" id="main-focus-bar"></div>
+                </div>
+                <div class="focus-percentage" id="main-focus-percentage">30%</div>
+            </div>
+            
+            <!-- Progressive Messages -->
+            <div class="progress-messages">
+                <p class="progress-msg" data-level="30">Sua mente já bloqueou 30% das distrações...</p>
+                <p class="progress-msg" data-level="50">Ruídos externos estão sendo filtrados automaticamente...</p>
+                <p class="progress-msg" data-level="72">Família... finanças... prosperidade... estão agora em seu campo de visão permanente.</p>
+                <p class="progress-msg" data-level="100">HIPERFOCO ATIVADO. Sua mente está 100% alinhada com seus objetivos.</p>
+            </div>
+        </div>
+        
+        <!-- Course Modules Preview -->
+        <div class="modules-preview">
+            <h3>O QUE VOCÊ VAI DOMINAR:</h3>
+            
+            <div class="module-preview-grid">
+                <div class="module-preview-card">
+                    <div class="module-icon">🧘</div>
+                    <h4>Silêncio Mental</h4>
+                    <p>Elimine o ruído mental e crie quietude absoluta</p>
                 </div>
                 
-                <!-- Audio/Video Player -->
-                <div class="media-player">
-                    <audio id="module-audio" controls>
-                        <!-- Audio source will be set dynamically -->
-                    </audio>
+                <div class="module-preview-card">
+                    <div class="module-icon">🎯</div>
+                    <h4>Foco Laser</h4>
+                    <p>Transforme sua atenção em precisão cirúrgica</p>
                 </div>
                 
-                <!-- Synchronized Text Display -->
-                <div class="synchronized-text">
-                    <p id="current-text">Prepare-se para iniciar seu treinamento...</p>
+                <div class="module-preview-card">
+                    <div class="module-icon">🚫</div>
+                    <h4>Escudo Anti-Distração</h4>
+                    <p>Torne-se imune a qualquer interferência</p>
                 </div>
                 
-                <!-- Player Controls -->
-                <div class="player-controls">
-                    <button id="play-pause-btn" class="control-btn">▶️ INICIAR</button>
-                    <div class="progress-container">
-                        <div class="audio-progress">
-                            <div class="audio-progress-bar" id="audio-progress"></div>
-                        </div>
-                        <span class="time-display" id="time-display">00:00 / 00:00</span>
-                    </div>
+                <div class="module-preview-card">
+                    <div class="module-icon">💰</div>
+                    <h4>Prosperidade Hipnótica</h4>
+                    <p>Conecte foco diretamente à sua conta bancária</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     
-    <!-- Focus Timer Modal -->
-    <div id="focus-timer-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content timer-content">
-            <div class="timer-header">
-                <h2>TIMER DE HIPERFOCO</h2>
-                <button class="close-modal" data-modal="focus-timer-modal">✕</button>
+    <!-- COPYWRITING PNL SECTION -->
+    <section class="pnl-section">
+        <div class="pnl-content">
+            <h2>QUANDO VOCÊ CLICA NO BOTÃO ABAIXO...</h2>
+            <p class="embedded-command">seu cérebro já começou a deletar todo ruído externo.</p>
+            
+            <div class="pnl-patterns">
+                <p>Você pode não perceber ainda... mas sua respiração está mais lenta... e suas decisões financeiras... mais claras.</p>
+                <p>Talvez você não tenha notado... como sua postura mudou... seu corpo já sabe que algo importante está acontecendo.</p>
+                <p>É interessante observar... como sua mente já começou a organizar... suas prioridades de forma diferente.</p>
             </div>
             
-            <div class="timer-body">
-                <div class="timer-display">
-                    <div class="timer-circle">
-                        <div class="timer-progress" id="timer-progress"></div>
-                        <div class="timer-time" id="timer-time">25:00</div>
-                    </div>
-                </div>
-                
-                <div class="timer-controls">
-                    <button id="timer-start" class="timer-btn">INICIAR FOCO</button>
-                    <button id="timer-pause" class="timer-btn" style="display: none;">PAUSAR</button>
-                    <button id="timer-reset" class="timer-btn">RESETAR</button>
-                </div>
-                
-                <div class="timer-presets">
-                    <button class="preset-btn" data-minutes="5">5 min</button>
-                    <button class="preset-btn active" data-minutes="25">25 min</button>
-                    <button class="preset-btn" data-minutes="45">45 min</button>
-                    <button class="preset-btn" data-minutes="90">90 min</button>
-                </div>
+            <div class="presuppositions">
+                <p><strong>Depois que você ativar seu hiperfoco...</strong></p>
+                <p><strong>Quando sua prosperidade começar a crescer...</strong></p>
+                <p><strong>Assim que você acessar a área de membros...</strong></p>
             </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- CHECKOUT HIPNÓTICO -->
+    <section class="checkout-section">
+        <div class="checkout-container">
+            <h2 class="checkout-title">É HORA DE TOMAR A DECISÃO QUE MUDARÁ SUA VIDA</h2>
+            
+            <div class="final-message">
+                <p>Seu clique aqui não é um acidente...</p>
+                <p>é a decisão mais lúcida da sua vida.</p>
+                <p>Sua intuição já sabe... que este é o momento.</p>
+                <p>Seu futuro próspero... está a um clique de distância.</p>
+            </div>
+            
+            <!-- Price with Glitch Effect -->
+            <div class="price-container">
+                <span class="old-price">R$ 497</span>
+                <span class="current-price glitch-price">R$ 97</span>
+                <span class="price-note">Oferta por tempo limitado</span>
+            </div>
+            
+            <!-- Pulsating Buy Button -->
+            <button class="buy-button pulsating-heartbeat target" id="buy-now">
+                ADQUIRIR HIPERFOCO ABSOLUTO
+            </button>
+            
+            <!-- Trust Elements -->
+            <div class="trust-elements">
+                <div class="guarantee">✅ Garantia de 30 dias</div>
+                <div class="security">🔒 Pagamento 100% seguro</div>
+                <div class="instant">⚡ Acesso imediato</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Link para Área do Aluno -->
+    <section class="student-access">
+        <div class="access-container">
+            <h3>JÁ É ALUNO?</h3>
+            <p>Acesse sua área exclusiva de treinamento</p>
+            <a href="student-area.html" class="student-access-btn target">
+                ENTRAR NA ÁREA DO ALUNO
+            </a>
+        </div>
+    </section>
     
     <!-- JavaScript Files -->
-    <script src="src/scripts/student-area.js"></script>
-    <script src="src/scripts/module-player.js"></script>
-    <script src="src/scripts/focus-timer.js"></script>
+    <script src="src/scripts/hypnotic-effects.js"></script>
+    <script src="src/scripts/scroll-interactions.js"></script>
+    <script src="src/scripts/checkout-flow.js"></script>
 </body>
 </html>
 

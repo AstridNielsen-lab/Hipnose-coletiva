@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiperfoco Absoluto - Portal de Entrada</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .portal-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .portal-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #ff6b35;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .portal-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            animation: fadeIn 3s ease-in;
+        }
+        
+        .entries-container {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .entry-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            min-width: 300px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .entry-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #ff6b35;
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+        
+        .entry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .entry-card:hover::before {
+            left: 100%;
+        }
+        
+        .entry-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .entry-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+        
+        .entry-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .entry-button {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+        
+        .entry-button:hover {
+            background: linear-gradient(45deg, #f7931e, #ff6b35);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .visitor-card {
+            border-color: rgba(34, 193, 195, 0.3);
+        }
+        
+        .visitor-card:hover {
+            border-color: #22c1c3;
+            box-shadow: 0 20px 40px rgba(34, 193, 195, 0.3);
+        }
+        
+        .visitor-card .entry-title {
+            color: #22c1c3;
+        }
+        
+        .visitor-card .entry-button {
+            background: linear-gradient(45deg, #22c1c3, #fdbb2d);
+        }
+        
+        .visitor-card .entry-button:hover {
+            background: linear-gradient(45deg, #fdbb2d, #22c1c3);
+        }
+        
+        /* Background Animation */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 107, 53, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+            background: rgba(34, 193, 195, 0.1);
+        }
+        
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ff6b35; }
+            to { text-shadow: 0 0 30px #ff6b35, 0 0 40px #ff6b35; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 0.8; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .portal-title {
+                font-size: 2rem;
+            }
+            
+            .entries-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .entry-card {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background-animation">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+    
+    <div class="portal-container">
+        <h1 class="portal-title">HIPERFOCO ABSOLUTO</h1>
+        <p class="portal-subtitle">Escolha sua jornada de transformação...</p>
+        
+        <div class="entries-container">
+            <!-- Entrada para Visitantes -->
+            <div class="entry-card visitor-card" onclick="window.location.href='index.html'">
+                <span class="entry-icon">🌟</span>
+                <h2 class="entry-title">DESCOBRIR O CURSO</h2>
+                <p class="entry-description">
+                    Primeira vez aqui? Descubra como transformar sua atenção em ouro puro através do poder da hipnose e PNL.
+                </p>
+                <button class="entry-button">QUERO CONHECER</button>
+            </div>
+            
+            <!-- Entrada para Assinantes -->
+            <div class="entry-card" onclick="window.location.href='student-area.html'">
+                <span class="entry-icon">🎯</span>
+                <h2 class="entry-title">ÁREA DO ALUNO</h2>
+                <p class="entry-description">
+                    Já é aluno? Acesse seu portal hipnótico exclusivo e continue sua jornada de hiperfoco absoluto.
+                </p>
+                <button class="entry-button">ENTRAR NO PORTAL</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Efeito de cursor personalizado
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: #ff6b35;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${e.clientX - 2}px;
+                top: ${e.clientY - 2}px;
+                animation: cursorFade 1s ease-out forwards;
+            `;
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.remove();
+            }, 1000);
+        });
+        
+        // CSS animation for cursor trail
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cursorFade {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0.5); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
