@@ -1176,6 +1176,151 @@ body {
 .p-3 { padding: 2rem; }
 
 /* ==========================================================================
+   CONTROLES DE ADMINISTRADOR
+   ========================================================================== */
+
+.admin-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid var(--gold-primary);
+    backdrop-filter: blur(10px);
+}
+
+.admin-badge {
+    background: var(--gradient-gold);
+    color: var(--primary-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: adminPulse 2s ease-in-out infinite;
+}
+
+@keyframes adminPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.admin-btn {
+    background: var(--gradient-module);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.admin-mode {
+    position: relative;
+}
+
+.admin-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-gold);
+    z-index: 1000;
+    animation: adminBorder 3s linear infinite;
+}
+
+@keyframes adminBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification.success {
+    background: var(--gradient-success);
+}
+
+.notification.warning {
+    background: var(--gradient-danger);
+}
+
+.notification.info {
+    background: var(--gradient-module);
+}
+
+/* Login error styles */
+.login-error {
+    background: rgba(214, 48, 49, 0.9);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid var(--danger-red);
+    display: none;
+}
+
+.login-error.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Admin responsividade */
+@media (max-width: 768px) {
+    .admin-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .admin-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .admin-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ==========================================================================
    FIM DO CSS COMERCIAL DA ÁREA DO ALUNO
    ========================================================================== */
 

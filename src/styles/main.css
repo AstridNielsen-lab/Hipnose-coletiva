@@ -1224,6 +1224,27 @@ a:focus {
 }
 
 /* ==========================================================================
+   ESTILOS DE ADMINISTRADOR GLOBAIS
+   ========================================================================== */
+
+.admin-mode-active {
+    border-top: 4px solid var(--gold-color) !important;
+}
+
+.admin-only {
+    display: none;
+}
+
+body.admin-logged .admin-only {
+    display: block;
+}
+
+.admin-highlight {
+    background: rgba(255, 215, 0, 0.1) !important;
+    border: 2px solid var(--gold-color) !important;
+}
+
+/* ==========================================================================
    FIM DO CSS COMERCIAL PROFISSIONAL
    ========================================================================== */
 
