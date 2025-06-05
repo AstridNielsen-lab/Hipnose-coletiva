@@ -148,9 +148,30 @@ function loginAsStudent(email) {
 }
 
 function validateStudentLogin(email, password) {
-    // Validação simples - em produção, usar API backend
-    const validCodes = ['FOCO2024', 'HIPER123', 'MENTAL456', password];
-    return email.includes('@') && validCodes.includes(password);
+    // Verificar se é admin primeiro
+    if (email.toLowerCase() === CONFIG.admin.email.toLowerCase()) {
+        return false; // Admin usa validação separada
+    }
+    
+    // Verificar se email tem acesso (comprou o produto)
+    const hasAccess = CheckoutFlow?.validateAccess(email.toLowerCase());
+    if (hasAccess) {
+        // Se tem acesso, aceitar códigos padrão
+        const validCodes = ['FOCO2024', 'HIPER123', 'MENTAL456', password];
+        return email.includes('@') && validCodes.includes(password);
+    }
+    
+    // Se não tem acesso, verificar se há dados de compra
+    const userAccount = localStorage.getItem('user_account');
+    if (userAccount) {
+        const userData = JSON.parse(userAccount);
+        if (userData.email.toLowerCase() === email.toLowerCase() && userData.hasAccess) {
+            const validCodes = ['FOCO2024', 'HIPER123', 'MENTAL456', userData.accessCode, password];
+            return validCodes.includes(password);
+        }
+    }
+    
+    return false;
 }
 
 function checkExistingSession() {

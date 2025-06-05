@@ -226,10 +226,18 @@
                 <span class="price-note">Oferta por tempo limitado</span>
             </div>
             
-            <!-- Pulsating Buy Button -->
-            <button class="buy-button pulsating-heartbeat target" id="buy-now">
-                ADQUIRIR HIPERFOCO ABSOLUTO
-            </button>
+            <!-- Mercado Pago Buy Button -->
+            <div class="buy-button-container">
+                <button class="buy-button pulsating-heartbeat target" id="buy-now-trigger">
+                    ADQUIRIR HIPERFOCO ABSOLUTO
+                </button>
+                <!-- Mercado Pago Integration (Hidden initially) -->
+                <div id="mercado-pago-button" style="display: none;">
+                    <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                    data-preference-id="29008060-7409e1c8-7c4b-4292-bebb-244f870d7bb0" data-source="button">
+                    </script>
+                </div>
+            </div>
             
             <!-- Trust Elements -->
             <div class="trust-elements">
@@ -256,6 +264,44 @@
     <script src="src/scripts/hypnotic-effects.js"></script>
     <script src="src/scripts/scroll-interactions.js"></script>
     <script src="src/scripts/checkout-flow.js"></script>
+    
+    <!-- Preload para otimização -->
+    <link rel="preload" as="script" href="src/scripts/hypnotic-effects.js">
+    <style>
+        /* Otimizações críticas para animações */
+        .main-hypnotic-spiral-container,
+        .hypnotic-particles,
+        .parallax-layer {
+            will-change: transform, opacity;
+            transform: translateZ(0);
+        }
+        
+        /* Reduzir animações em dispositivos com performance baixa */
+        @media (prefers-reduced-motion: reduce) {
+            .spiral-layer,
+            .hypno-ring,
+            .hypno-particle {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+        
+        /* Cursor customizado mais hipnótico */
+        #custom-cursor {
+            background: radial-gradient(circle, 
+                rgba(255, 215, 0, 0.8) 0%, 
+                rgba(255, 215, 0, 0.3) 50%, 
+                transparent 100%
+            );
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            animation: cursorPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes cursorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
 </body>
 </html>
 
